@@ -1,0 +1,200 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <string.h>
+#include <conio.c>
+// declaração de variaveis globais do codigo
+ int opcao, idade, valid_tel, comparar_email;
+ char email1[21];
+ char emailC[21];
+ char nome[56];
+ char sobrenome[26];
+ char espaco[10]=" ";
+ char tel[20];
+ 
+// ----------------------------
+
+//-=========================== menu
+void comeco (){
+    
+     textcolor(14);
+   printf(" \n");
+   printf("   ___________________________________________________________________________  \n");
+   printf("  |                                                                           | \n");
+   printf("  |                                 BEM VINDO                                 | \n");
+   printf("  |                              AO CLIMA TEMPO!                              | \n");
+   printf("  |___________________________________________________________________________| \n");
+   printf("                                                                                \n");
+   printf("\n");
+   
+   
+    textcolor(15);
+  
+         printf("\n\n");
+         printf("                              O que voce deseja fazer?");	
+         
+         printf("\n\n\n");
+         printf("                              1- Cadastrar \n");
+         printf("                              2- fazer login \n");
+         printf("                              3- Sair \n");
+         
+         printf("\n\n");                       
+         
+         printf(" Escolha umas das opções acima((1, 2 ou 3)): ");
+         scanf("%i", &opcao);
+         
+         
+    
+    }
+    
+    //------------------------------------------------------------------------- cadastro
+
+void P_Opcao(){
+     
+     
+     
+      setlocale(LC_ALL, "portuguese");
+      
+      system("cls");
+     
+     textcolor(GREEN);
+   printf(" \n");
+   printf("   ___________________________________________________________________________  \n");
+   printf("  |                                                                           | \n");
+   printf("  |     OLA, PARECE QUE VOCE AINDA NÃO TEM UM CADASTRO EM NOSSO APP,          | \n");
+   printf("  |     MAS NÃO SE PREOCUPE, BASTA PREENCHER AS INFORMAÇÕES ABAIXO            | \n");
+   printf("  |___________________________________________________________________________| \n");
+   printf("                                                                                \n");
+   printf("\n");
+   
+   textcolor(WHITE);
+   
+                    printf("\nDIGITE SEU PRIMEIRO NOME: ");
+                    scanf("%s", &nome);
+                    
+                    printf("\nDIGITE SEU SOBRENOME: ");
+                    scanf("%s", &sobrenome);
+                    
+                    strcat(nome,espaco);
+                    strcat(nome,sobrenome);
+   	                
+                    printf("\nOLÁ %s\n\n", nome);
+                    
+                    
+                    
+                     printf("\nDIGITE SUA IDADE: ");
+                     scanf("%i", &idade);
+                    
+                   
+                   if(idade>13){
+                                
+                    printf("\n\nDIGITE UM E-MAIL VALIDO: ");
+                    scanf("%s", &email1);
+   
+               
+                    printf("\n\nCONFIRME SEU E-MAIL: ");
+                    scanf("%s", &emailC);
+                                
+                                
+                                
+                                
+                                  comparar_email = strcmp(email1,emailC);
+
+     
+     
+     switch(comparar_email){
+
+
+        case 1:
+            printf("\n\ne-mail não corresponde ao digitado\n\n");
+             
+             break;
+         
+         
+                 case -1:
+                        printf("\n\ne-mail não corresponde ao digitado\n\n");
+                      
+                      
+                      break;
+                      
+                              
+                              case 0:
+                               printf("\n\ne-mail OK\n");  
+                               
+                               
+                               
+                               printf("\n\nDIGITE UM NUMERO DE TELEFONE VALIDO (DIITE APENAS DDD E O NUMERO, SEM TRAÇOS): ");
+                               scanf("%s", &tel);
+                                   
+                                   
+                                   valid_tel = strlen(tel);
+                                   
+                                   if(valid_tel>13 || valid_tel<9){
+                   
+                   
+                   
+                        printf("\n\nNUMERO DE TELEFONE INVALIDO, DIGITE APENAS O DDD E O TELEFONE! \n\n");                                 
+                                                    
+                                                    
+                                                    
+                    } else{
+                           
+                           printf("\n\nOK, UM SMS SERA ENVIADO PARA O SEU TELEFONE \n\n");        
+                           
+                           
+                           }
+                               
+                                   break;          
+          
+          }
+          
+          
+                                }else{
+                                      
+                                      
+                            printf("\n\nIDADE INVALIDA\n\n\n ");
+                                      
+                                      }
+                              
+     
+     }
+     
+     
+     
+     
+     
+     // ------------------- programa principal (main)
+     
+int main(){
+    
+    
+    setlocale(LC_ALL, "portuguese");
+
+// chamada de procedimento 
+   comeco();
+   
+   switch(opcao){
+                 
+                 case 1:
+                      //chamada de procedimento
+                       P_Opcao();
+                      
+                      break;
+                      
+                      
+                      case 2:
+                           
+                           break;
+                           
+                           case 3:
+                                
+                                break;
+                 
+                 
+                 
+                 }
+
+		system("pause");
+	return (0);
+}
+

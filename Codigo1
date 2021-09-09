@@ -3,16 +3,39 @@
 #include <locale.h>
 #include <string.h>
 #include <conio.c>
+#include <windows.h>
+
+
+
+                           // ACABEI DE VALIDAR O TELEFONE, PROSSEGUIR COM AS OUTRAS COISAS DO CADASTRO
+                           
+                           
+                           
+                           
 // declaração de variaveis globais do codigo
- int opcao, idade, valid_tel, comparar_email;
+
+// informações caso a pessoa resolva se cadastrar --->
+ int opcao, idade, cadastro2, Segunda_Part_Cadastro, tam_senha, valid_tel, comparar_email, P_tam;
  char email1[21];
  char emailC[21];
  char nome[56];
  char sobrenome[26];
- char espaco[10]=" ";
+ char espaco[2]=" ";
  char tel[20];
- 
+ char senha[9];
+ char T_plant[21];
+ char Cidade[61];
+ char estado[31];
+ char email_N[4];
+ char sms[4];
 // ----------------------------
+
+// informações caso a pessoa ja tenha um cadastro (para teste) --->
+
+
+
+
+
 
 //-=========================== menu
 void comeco (){
@@ -77,9 +100,6 @@ void P_Opcao(){
                     
                     strcat(nome,espaco);
                     strcat(nome,sobrenome);
-   	                
-                    printf("\nOLÁ %s\n\n", nome);
-                    
                     
                     
                      printf("\nDIGITE SUA IDADE: ");
@@ -123,13 +143,13 @@ void P_Opcao(){
                                
                                
                                
-                               printf("\n\nDIGITE UM NUMERO DE TELEFONE VALIDO (DIITE APENAS DDD E O NUMERO, SEM TRAÇOS): ");
+                               printf("\n\nDIGITE UM NUMERO DE TELEFONE VALIDO (DIGITE APENAS DDD E O NUMERO): ");
                                scanf("%s", &tel);
                                    
                                    
                                    valid_tel = strlen(tel);
                                    
-                                   if(valid_tel>13 || valid_tel<9){
+                                   if(valid_tel>14 || valid_tel<9){
                    
                    
                    
@@ -139,9 +159,15 @@ void P_Opcao(){
                                                     
                     } else{
                            
-                           printf("\n\nOK, UM SMS SERA ENVIADO PARA O SEU TELEFONE \n\n");        
+                           printf("\n\nOK, UM SMS SERA ENVIADO PARA O SEU TELEFONE \n\n");   
                            
-                           
+                          
+                          
+                          printf("\n\nPARA PROSSEGUIR DIGITE 1: ");
+                          scanf("%i", &cadastro2);
+                          
+                          printf("\n\n");
+                          
                            }
                                
                                    break;          
@@ -161,6 +187,88 @@ void P_Opcao(){
      
      
      
+void S_cadastro(){
+     
+     
+      textcolor(14);
+   printf(" \n");
+   printf("   ___________________________________________________________________________  \n");
+   printf("  |                                                                           | \n");
+   printf("                            OLÁ %s                                              \n", nome);
+   printf("                            E-mail: %s                                          \n", emailC);
+   printf("                            TELEFONE: %s                                        \n", tel);    
+   printf("                            VOCE TEM %i ANOS                                    \n", idade);
+   printf("  |___________________________________________________________________________| \n");
+   printf("                                                                                \n");
+   printf("\n");
+     
+     
+     
+     textcolor(15);
+     
+                   
+                   do{
+                   printf("\n\nDIGITE UMA SENHA DE 9 CARACTERES: ");
+                   scanf("%s", &senha);
+                   
+                   tam_senha = strlen(senha);
+                   
+                   }while(tam_senha<=8 || tam_senha>9);
+                   
+                   
+                   printf("\n\nDIGITE O TAMANHO DA PLANTAÇÃO (EM METROS): ");
+                   scanf("%i", &P_tam);
+                   
+                   printf("\n\nO QUE VOCE PLANTA? ");
+                   scanf("%s", &T_plant);
+                   
+                   
+                   printf("\n\nEM QUAL CIDADE VOCE MORA? ");
+                   scanf("%s", &Cidade);
+                   
+                   printf("\n\nEM QUAL ESTADO VOCE MORA? ");
+                   scanf("%s", &estado);
+                   
+                   printf("\n\nDESEJA RECEBER NOTIFICAÇÕES POR SMS? (SIM OU NAO) ");
+                   scanf("%s", &sms);
+                   
+                   printf("\n\nDESEJA RECEBER NOTIFICAÇÕES POR E-MAIL? (SIM OU NAO) ");
+                   scanf("%s", &email_N);
+                   
+                   
+                   
+                   Sleep(3000);
+                   system("cls");
+                   
+   textcolor(15);
+   printf(" \n");
+   printf("   ___________________________________________________________________________  \n");
+   printf("  |                                                                           | \n");
+   printf("                            OLÁ %s                                              \n", nome);
+   printf("                            E-mail: %s                                          \n", emailC);
+   printf("                            TELEFONE: %s                                        \n", tel);    
+   printf("                            IDADE: %i ANOS                                      \n", idade);
+   printf("                            SENHA: %s                                           \n", senha);
+   printf("                            TAMANHO PLANTAÇÃO: %i METROS                        \n", P_tam);
+   printf("                            PLANTAÇÃO DE: %s                                    \n", T_plant);
+   printf("                            CIDADE: %s                                          \n", Cidade);
+   printf("                            ESTADO: %s                                          \n", estado);      
+   printf("                            NOTIFICAÇÕES POR SMS? %s                            \n", sms);          
+   printf("                            NOTIFICAÇÕES POR E-MAIL? %s                         \n", email_N);
+   printf("  |___________________________________________________________________________| \n");
+   printf("                                                                                \n");
+   printf("\n");
+   
+   //printf("                            BEM VINDO!!!                                        \n");
+     
+     printf("\nDigite 2 para continuar: ");
+     scanf("%i", &Segunda_Part_Cadastro);     
+     
+     printf("\n\n");
+     
+     
+     
+     }
      
      
      // ------------------- programa principal (main)
@@ -177,7 +285,37 @@ int main(){
                  
                  case 1:
                       //chamada de procedimento
+                      
                        P_Opcao();
+                       
+                      
+                       
+                       switch(cadastro2){
+                                
+                                
+                                case 1: 
+                                     
+                                     system("cls");
+                                     
+                                      S_cadastro();
+                                     
+                                     Sleep(4000);
+                                     system("cls");
+                                     
+                                     switch(Segunda_Part_Cadastro){
+                                              
+                                              case 2:
+                                                   
+                                                   
+                                                   
+                                                   break;
+                                              
+                                              
+                                              
+                                              }
+                                     break;
+                                
+                                }
                       
                       break;
                       

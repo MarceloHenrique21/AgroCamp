@@ -22,13 +22,25 @@
  char sobrenome[26];
  char espaco[2]=" ";
  char tel[20];
- char senha[9];
+ char senha[10];
  char T_plant[21];
  char Cidade[61];
  char estado[31];
  char email_N[4];
  char sms[4];
+ char whats[4];
+ 
 // ----------------------------
+   // variaveis da tela login
+   
+   int valida_email2, valida_senha;
+   char email3[21]="m";
+   char email2[21];
+   char senha2[10];
+   char senha3[10] ="1";
+
+
+// ----------------------------------
 
 // informações caso a pessoa ja tenha um cadastro (para teste) --->
 
@@ -236,6 +248,10 @@ void S_cadastro(){
                    scanf("%s", &email_N);
                    
                    
+                      printf("\n\nDESEJA RECEBER NOTIFICAÇÕES POR WHATSAPP (SIM OU NAO) ");
+                   scanf("%s", &whats);
+                   
+                   
                    
                    Sleep(3000);
                    system("cls");
@@ -255,6 +271,7 @@ void S_cadastro(){
    printf("                            ESTADO: %s                                          \n", estado);      
    printf("                            NOTIFICAÇÕES POR SMS? %s                            \n", sms);          
    printf("                            NOTIFICAÇÕES POR E-MAIL? %s                         \n", email_N);
+   printf("                            NOTIFICAÇÕES POR WHATSAPP? %s                         \n", whats);
    printf("  |___________________________________________________________________________| \n");
    printf("                                                                                \n");
    printf("\n");
@@ -271,6 +288,110 @@ void S_cadastro(){
      }
      
      
+     
+     
+     void T_login(){
+           
+           
+           system("cls");
+           
+           
+           printf("Digite e-mail: ");
+           scanf("%s", &email2);
+           
+           valida_email2 = strcmp(email3, email2);
+           
+           switch(valida_email2){
+                                 
+                                 
+                                          
+              case 1:
+                                      
+                                    printf("\n\ne-mail não corresponde ao digitado\n\n");
+             
+                                          break;
+         
+         
+                     case -1:
+                                    printf("\n\ne-mail não corresponde ao digitado\n\n");
+                                  
+                                  
+                                  break;
+                      
+                              
+                              case 0:
+                                   
+                               printf("\n\ne-mail OK\n");  
+                               
+                               
+                               
+                               
+                               printf("Digite sua senha: ");
+                               scanf("%s", &senha2);
+                              
+                               valida_senha = strcmp(senha3, senha2);
+                               
+                               
+                               
+                            // validar senha   
+                           switch(valida_senha){
+                                 
+                                 
+                                          
+              case 1:
+                                      
+                                    printf("\n\nsenha não corresponde ao digitado\n\n");
+             
+                                          break;
+         
+         
+                     case -1:
+                                    printf("\n\nsenha não corresponde ao digitado\n\n");
+                                  
+                                  
+                                  break;
+                      
+                              
+                              case 0:
+                                   
+                                     printf("\n\nsenha OK\n");  
+                               
+                               system("cls");
+                               
+                               
+                               printf(" \n");
+   printf("   ___________________________________________________________________________  \n");
+   printf("  |                                                                           | \n");
+   printf("                            OLÁ %s                                              \n", nome);
+   printf("                            E-mail: %s                                          \n", emailC);
+   printf("                            TELEFONE: %s                                        \n", tel);    
+   printf("                            IDADE: %i ANOS                                      \n", idade);
+   printf("                            SENHA: %s                                           \n", senha);
+   printf("                            TAMANHO PLANTAÇÃO: %i METROS                        \n", P_tam);
+   printf("                            PLANTAÇÃO DE: %s                                    \n", T_plant);
+   printf("                            CIDADE: %s                                          \n", Cidade);
+   printf("                            ESTADO: %s                                          \n", estado);      
+   printf("                            NOTIFICAÇÕES POR SMS? %s                            \n", sms);          
+   printf("                            NOTIFICAÇÕES POR E-MAIL? %s                         \n", email_N);
+   printf("  |___________________________________________________________________________| \n");
+   printf("                                                                                \n");
+   printf("\n");
+                               
+                               
+                                     break;
+                                     }
+                               
+                                 
+                                 }
+           
+           
+           
+           printf("\n\n\n");
+           
+           
+           
+           }
+     
      // ------------------- programa principal (main)
      
 int main(){
@@ -281,7 +402,10 @@ int main(){
 // chamada de procedimento 
    comeco();
    
+   
+   // tela inicio
    switch(opcao){
+                
                  
                  case 1:
                       //chamada de procedimento
@@ -289,6 +413,9 @@ int main(){
                        P_Opcao();
                        
                       
+                       
+                       
+                       // tela de prosseguimento de cadastro
                        
                        switch(cadastro2){
                                 
@@ -307,6 +434,8 @@ int main(){
                                               case 2:
                                                    
                                                    
+                                              comeco ();
+                                                   
                                                    
                                                    break;
                                               
@@ -321,6 +450,10 @@ int main(){
                       
                       
                       case 2:
+                           
+                           Sleep(4000);
+                           
+                           T_login();
                            
                            break;
                            
